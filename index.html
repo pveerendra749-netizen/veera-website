@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Generate binary strings for your computer science project.">
+  <title>Binary String Generator</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#" aria-label="Binary Lab home">
+      <span class="brand-mark" aria-hidden="true">01</span>
+      <span>Binary<span class="brand-light">Lab</span></span>
+    </a>
+    <span class="project-tag">COMPUTER SCIENCE PROJECT</span>
+  </header>
+
+  <main class="page">
+    <section class="intro">
+      <p class="eyebrow"><span class="eyebrow-dot"></span> A simple tool for binary sequences</p>
+      <h1>Binary String<br><span>Generator</span></h1>
+      <p class="intro-text">
+        Create every possible binary string for a given length, or generate a
+        random sample in seconds.
+      </p>
+    </section>
+
+    <section class="workspace" aria-label="Binary string generator">
+      <div class="controls-panel">
+        <div class="section-heading">
+          <div>
+            <p class="section-label">CONFIGURATION</p>
+            <h2>Set your parameters</h2>
+          </div>
+          <span class="step-badge">01</span>
+        </div>
+
+        <form id="generatorForm">
+          <label class="field-label" for="mode">Generation mode</label>
+          <select id="mode" name="mode">
+            <option value="all">Generate all strings</option>
+            <option value="random">Generate random sample</option>
+          </select>
+
+          <label class="field-label" for="length">String length</label>
+          <div class="input-with-suffix">
+            <input
+              id="length"
+              name="length"
+              type="number"
+              value="4"
+              min="1"
+              max="12"
+              required
+            >
+            <span>bits</span>
+          </div>
+          <p class="field-hint" id="lengthHint">Choose a length from 1 to 12.</p>
+
+          <div class="count-field" id="countField" hidden>
+            <label class="field-label" for="count">Number of strings</label>
+            <div class="input-with-suffix">
+              <input
+                id="count"
+                name="count"
+                type="number"
+                value="10"
+                min="1"
+                max="1000"
+              >
+              <span>strings</span>
+            </div>
+            <p class="field-hint">Random strings may repeat.</p>
+          </div>
+
+          <button class="generate-button" type="submit">
+            <span>Generate strings</span>
+            <span aria-hidden="true">→</span>
+          </button>
+        </form>
+
+        <div class="info-note">
+          <span class="info-icon" aria-hidden="true">i</span>
+          <p>Each position in a binary string can contain either <strong>0</strong> or <strong>1</strong>.</p>
+        </div>
+      </div>
+
+      <div class="results-panel">
+        <div class="results-heading">
+          <div>
+            <p class="section-label">OUTPUT</p>
+            <h2>Your binary strings</h2>
+          </div>
+          <span class="ready-status" id="status">
+            <span class="status-dot"></span>
+            Ready
+          </span>
+        </div>
+
+        <div class="stats">
+          <div class="stat-card">
+            <span class="stat-label">STRINGS SHOWN</span>
+            <strong id="shownCount">0</strong>
+          </div>
+          <div class="stat-card">
+            <span class="stat-label">POSSIBLE STRINGS</span>
+            <strong id="possibleCount">0</strong>
+          </div>
+          <div class="stat-card">
+            <span class="stat-label">LENGTH</span>
+            <strong id="shownLength">0 bits</strong>
+          </div>
+        </div>
+
+        <div class="output-box">
+          <div class="output-topline">
+            <span>GENERATED SEQUENCES</span>
+            <span class="output-format">.TXT FORMAT</span>
+          </div>
+          <pre id="output" aria-live="polite" aria-label="Generated binary strings"></pre>
+        </div>
+
+        <div class="output-actions">
+          <p id="message" class="message" aria-live="polite">Your results will appear here.</p>
+          <div class="action-buttons">
+            <button class="secondary-button" id="copyButton" type="button" disabled>
+              Copy
+            </button>
+            <button class="secondary-button download-button" id="downloadButton" type="button" disabled>
+              Download
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <span>BinaryLab <span aria-hidden="true">·</span> 0s and 1s, made simple</span>
+      <span>Built with HTML, CSS &amp; JavaScript</span>
+    </footer>
+  </main>
+</body>
+</html>
